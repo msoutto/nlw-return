@@ -8,27 +8,27 @@ tasks:
 #      npm install
 #
   - name: DB
-    init: >
-      cd ./server && 
+    init: |
+      cd ./server
       npm install
-    command: >
-      cd ./server && 
+    command: |
+      cd ./server
       npm run db
 
   - name: Back End
-    init: >
-      cd ./server && 
+    init: |
+      cd ./server
       npm install
-    command: >
-      cd ./server && 
+    command: |
+      cd ./server
       npm run dev
       
   - name: Front End
-    init: >
-      cd ./web && 
+    init: |
+      cd ./web
       npm install
-    command: >
-      cd ./web && 
+    command: |
+      cd ./web
       npm run dev
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
