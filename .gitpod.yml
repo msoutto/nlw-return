@@ -6,6 +6,7 @@ tasks:
       npm install
       cd ../web
       npm install
+      echo 'DATABASE_URL: ' $DATABASE_URL
 
   - name: DB
     command: |
@@ -13,10 +14,6 @@ tasks:
       npm run db
 
   - name: Back End
-    env:
-      DATABASE_URL: "file:./dev.db"
-    init: |
-      echo 'DATABASE_URL: ' $DATABASE_URL
     command: |
       cd ./server
       npm run dev
