@@ -1,5 +1,20 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
+#  - name: Dependencies
+#    init: >
+#      cd ./server && 
+#      npm install &&
+#      cd ../web && 
+#      npm install
+#
+  - name: DB
+    init: >
+      cd ./server && 
+      npm install
+    command: >
+      cd ./server && 
+      npm run db
+
   - name: Back End
     init: >
       cd ./server && 
@@ -18,6 +33,8 @@ tasks:
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
+  - port: 5555
+    onOpen: open-browser
   - port: 3333
     onOpen: open-preview
   - port: 3000
