@@ -1,32 +1,25 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-#  - name: Dependencies
-#    init: >
-#      cd ./server && 
-#      npm install &&
-#      cd ../web && 
-#      npm install
-#
-  - name: DB
+  - name: Dependencies
     init: |
       cd ./server
       npm install
+      cd ../web
+      npm install
+    env:
+      DATABASE_URL: "file:./dev.db"
+
+  - name: DB
     command: |
       cd ./server
       npm run db
 
   - name: Back End
-    init: |
-      cd ./server
-      npm install
     command: |
       cd ./server
       npm run dev
       
   - name: Front End
-    init: |
-      cd ./web
-      npm install
     command: |
       cd ./web
       npm run dev
