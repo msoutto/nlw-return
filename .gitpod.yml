@@ -28,6 +28,6 @@ ports:
   - port: 5555
     onOpen: open-browser
   - port: 3333
-    onOpen: open-preview
+    onOpen: open-browser
   - port: 3000
     onOpen: open-browser
