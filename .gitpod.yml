@@ -1,3 +1,4 @@
+---
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
   - name: Dependencies
@@ -17,7 +18,7 @@ tasks:
     command: |
       cd ./server
       npm run dev
-      
+
   - name: Front End
     command: |
       cd ./web
@@ -31,3 +32,7 @@ ports:
     onOpen: open-browser
   - port: 3000
     onOpen: open-browser
+
+vscode:
+  extensions:
+    - rangav.vscode-thunder-client
