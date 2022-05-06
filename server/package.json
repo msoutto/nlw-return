@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "db": "npx prisma studio",
     "dev": "ts-node-dev src/server.ts"
   },
   "keywords": [],
