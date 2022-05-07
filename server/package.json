@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest",
     "db": "npx prisma studio",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "dev": "ts-node-dev src/server.ts"
   },
   "keywords": [],
