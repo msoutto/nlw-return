@@ -7,6 +7,7 @@ const app = express();
 // TODO: limit access
 app.use(cors(), (req, res, next) => {
     const allowedOrigins = ['https://nlw-return-dun.vercel.app', 'http://localhost:3000'];
+    const origin = req.headers.origin ?? '';
     if (allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);
     }
