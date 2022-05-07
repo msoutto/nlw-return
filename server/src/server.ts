@@ -3,10 +3,14 @@ import cors from 'cors';
 import { routes } from './routes';
 
 const app = express();
+
 // TODO: limit access
 app.use(cors(), (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://nlw-return-dun.vercel.app/");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    const allowedOrigins = ['https://nlw-return-dun.vercel.app', 'http://localhost:3000'];
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     return next();
 });
 
