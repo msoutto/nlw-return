@@ -21,6 +21,14 @@ This project was created during the Next Level Week (Return) Bootcamp by Rockets
 
 On development environment SQLite was used as database provider for the easy setup.
 
+Change the db provider to `sqlite`:
+```
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+```
+
 Create .env file (or just an environment variable) with DB info:
 ```
 DATABASE_URL="file:./dev.db"
