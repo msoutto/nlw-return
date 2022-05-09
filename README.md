@@ -17,7 +17,7 @@ This project was created during the Next Level Week (Return) Bootcamp by Rockets
 
 ## Local development setup
 
-### Back End (server path)
+### Back End (`server path`)
 
 On development environment SQLite was used as database provider for the easy setup.
 
@@ -34,7 +34,12 @@ Create .env file (or just an environment variable) with DB info:
 DATABASE_URL="file:./dev.db"
 ```
 
-### Front End (web path)
+Run the Migrations to create the table in the database with the following command:
+```
+npx prisma migrate dev
+```
+
+### Front End (`web path`)
 
 Create .env.local file (or just an environment variable) with API info:
 ```
