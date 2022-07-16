@@ -26,10 +26,10 @@ tasks:
 
   - name: Front End
     env:
-      VITE_API_URL: echo $(gp url 3333)
+      ECHO_API_URL: echo $(gp url 3333)
     init: |
       gp sync-await dependencies
-      echo "$VITE_API_URL"
+      echo "$(eval ECHO_API_URL)"
     command: |
       cd ./web
       npm run dev
