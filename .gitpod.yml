@@ -25,7 +25,9 @@ tasks:
       npm start
 
   - name: Front End
-    init: gp sync-await dependencies
+    init: |
+      gp sync-await dependencies
+      eval $(gp env -e VITE_API_URL= gp url 3333)
     command: |
       cd ./web
       npm run dev
