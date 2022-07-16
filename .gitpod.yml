@@ -3,6 +3,8 @@ tasks:
   - name: Dependencies
     init: |
       cd ./server
+      mv ./prisma/schema.prisma ./prisma/schema.prod.prisma
+      mv ./prisma/schema.dev.prisma ./prisma/schema.prisma
       npm install
       cd ../web
       npm install
@@ -21,7 +23,7 @@ tasks:
   - name: Front End
     command: |
       cd ./web
-      npm run dev
+      npm start
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
