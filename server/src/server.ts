@@ -21,7 +21,7 @@ app.use(cors(), (req, res, next) => {
     if (gitpodOrigins.test(urlTest))
         console.log('test passed');
 
-    if (allowedOrigins.includes(origin) || referrer.includes(env_url)) {
+    if (allowedOrigins.includes(origin) || origin.includes(env_url) || referrer.includes(env_url)) {
         res.setHeader('Access-Control-Allow-Origin', origin);
         console.log('passed');
     }
