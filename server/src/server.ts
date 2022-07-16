@@ -7,8 +7,8 @@ const app = express();
 // TODO: limit access
 app.use(cors(), (req, res, next) => {
     const allowedOrigins = ['https://nlw-return-dun.vercel.app', 'http://localhost:3000', 'https://3000-matheussoutto-nlwreturn*.gitpod.io'];
-    const gitpodOrigins = /^https:\/\/3000-matheussoutto-nlwreturn-.+\.gitpod\.io$/
-    let urlTest = 'https://3000-matheussoutto-nlwreturn-asdfsd-nrfwe.gitpod.io';
+    const gitpodOrigins = /^https:\/\/3000-matheussoutto-nlwreturn-.+\.gitpod\.io[\/]?$/
+    let urlTest = 'https://3000-matheussoutto-nlwreturn-dcu2v9iv5zg.ws-us54.gitpod.io';
     const origin = req.headers.origin ?? '';
     console.log(origin);
 
