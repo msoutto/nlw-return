@@ -9,19 +9,23 @@ tasks:
       cd ../web
       npm install
       npm install vite -g
+      gp sync-done dependencies
 
   - name: DB
+    init: gp sync-await dependencies
     command: |
       cd ./server
       npm run db -y
 
   - name: Back End
+    init: gp sync-await dependencies
     command: |
       cd ./server
       npm run build
       npm start
 
   - name: Front End
+    init: gp sync-await dependencies
     command: |
       cd ./web
       npm run dev
