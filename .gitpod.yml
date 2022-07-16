@@ -26,7 +26,7 @@ tasks:
 
   - name: Front End
     env:
-      VITE_API_URL: eval $(gp url 3333)
+      VITE_API_URL: eval "$(gp url 3333)"
     init: |
       gp sync-await dependencies
       echo "$VITE_API_URL"
