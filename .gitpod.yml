@@ -8,7 +8,7 @@ tasks:
       npm install
       cd ../web
       npm install
-      echo 'DATABASE_URL: ' $DATABASE_URL
+      npm install vite -g
 
   - name: DB
     command: |
