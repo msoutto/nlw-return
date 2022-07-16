@@ -23,7 +23,7 @@ tasks:
   - name: Front End
     command: |
       cd ./web
-      npm start
+      npm run dev
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
