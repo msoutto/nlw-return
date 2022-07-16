@@ -11,7 +11,7 @@ tasks:
   - name: DB
     command: |
       cd ./server
-      npm run db
+      npm run db -y
 
   - name: Back End
     command: |
