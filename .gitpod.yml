@@ -18,7 +18,7 @@ tasks:
   - name: Back End
     command: |
       cd ./server
-      npm run dev
+      npm start
 
   - name: Front End
     command: |
