@@ -18,7 +18,12 @@ tasks:
       npm run db -y
 
   - name: Back End
-    init: gp sync-await dependencies
+    env:
+      ECHO_WEB_URL: echo $(gp url 3333)
+    init: |
+      gp sync-await dependencies
+      echo "$(eval $ECHO_WEB_URL)"
+      eval $(gp env -e VITE_WEB_URL="$(eval $ECHO_WEB_URL)")
     command: |
       cd ./server
       npm run build
