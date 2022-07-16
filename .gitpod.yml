@@ -29,7 +29,8 @@ tasks:
       ECHO_API_URL: echo $(gp url 3333)
     init: |
       gp sync-await dependencies
-      echo "$(eval ECHO_API_URL)"
+      echo "$(eval $ECHO_API_URL)"
+      eval $(gp env -e VITE_API_URL="$(eval $ECHO_API_URL)")
     command: |
       cd ./web
       npm run dev
