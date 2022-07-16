@@ -19,7 +19,7 @@ tasks:
 
   - name: Back End
     env:
-      ECHO_WEB_URL: echo $(gp url 3333)
+      ECHO_WEB_URL: echo $(gp url 3000)
     init: |
       gp sync-await dependencies
       echo "$(eval $ECHO_WEB_URL)"
