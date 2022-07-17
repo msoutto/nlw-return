@@ -24,7 +24,7 @@ tasks:
     env:
       ECHO_API_URL: echo $(gp url 3333)
     init: |
-      cd ../web
+      cd ./web
       npm install
     command: |
       echo "$(eval $ECHO_API_URL)"
