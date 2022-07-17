@@ -14,6 +14,8 @@ tasks:
     env:
       ECHO_WEB_URL: echo $(gp url 3000)
 # the init container has a different url, so need to set the variables in command
+    init: |
+      npm install
     command: |
       echo "$(eval $ECHO_WEB_URL)" 
       eval $(gp env -e VITE_WEB_URL="$(eval $ECHO_WEB_URL)")
