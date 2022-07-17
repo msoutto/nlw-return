@@ -22,9 +22,10 @@ tasks:
       ECHO_WEB_URL: echo $(gp url 3000)
     init: |
       gp sync-await dependencies
-      echo "$(eval $ECHO_WEB_URL)"
-      eval $(gp env -e VITE_WEB_URL="$(eval $ECHO_WEB_URL)")
+# the init container has a different url, so need to set the variables in command
     command: |
+      echo "$(eval $ECHO_WEB_URL)" 
+      eval $(gp env -e VITE_WEB_URL="$(eval $ECHO_WEB_URL)")
       cd ./server
       npm run build
       npm start
@@ -34,9 +35,9 @@ tasks:
       ECHO_API_URL: echo $(gp url 3333)
     init: |
       gp sync-await dependencies
+    command: |
       echo "$(eval $ECHO_API_URL)"
       eval $(gp env -e VITE_API_URL="$(eval $ECHO_API_URL)")
-    command: |
       cd ./web
       npm run dev
 
