@@ -27,8 +27,7 @@ tasks:
       echo "$(eval $ECHO_WEB_URL)" 
       eval $(gp env -e VITE_WEB_URL="$(eval $ECHO_WEB_URL)")
       cd ./server
-      npm run build
-      npm start
+      npm run dev
 
   - name: Front End
     env:
@@ -44,9 +43,9 @@ tasks:
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
   - port: 5555
-    visibility: public
+    onOpen: ignore
   - port: 3333
-    visibility: public
+    onOpen: ignore
   - port: 3000
     onOpen: open-browser
 
