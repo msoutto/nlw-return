@@ -43,8 +43,10 @@ tasks:
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
   - port: 5555
+    visibility: public
     onOpen: ignore
   - port: 3333
+    visibility: public
     onOpen: ignore
   - port: 3000
     onOpen: open-browser
