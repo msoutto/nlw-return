@@ -1,18 +1,11 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - name: Dependencies
+  - name: DB
     init: |
       cd ./server
       mv ./prisma/schema.prisma ./prisma/schema.prod.prisma
       mv ./prisma/schema.dev.prisma ./prisma/schema.prisma
       npm install
-      cd ../web
-      npm install
-      npm install vite -g
-      gp sync-done dependencies
-
-  - name: DB
-    init: gp sync-await dependencies
     command: |
       cd ./server
       npm run db -y
@@ -20,23 +13,25 @@ tasks:
   - name: Back End
     env:
       ECHO_WEB_URL: echo $(gp url 3000)
+# the init container has a different url, so need to set the variables in command
     init: |
-      gp sync-await dependencies
-      echo "$(eval $ECHO_WEB_URL)"
-      eval $(gp env -e VITE_WEB_URL="$(eval $ECHO_WEB_URL)")
-    command: |
       cd ./server
-      npm run build
-      npm start
+      npm install
+    command: |
+      echo "$(eval $ECHO_WEB_URL)" 
+      eval $(gp env -e VITE_WEB_URL="$(eval $ECHO_WEB_URL)")
+      cd ./server
+      npm run dev
 
   - name: Front End
     env:
       ECHO_API_URL: echo $(gp url 3333)
     init: |
-      gp sync-await dependencies
+      cd ./web
+      npm install
+    command: |
       echo "$(eval $ECHO_API_URL)"
       eval $(gp env -e VITE_API_URL="$(eval $ECHO_API_URL)")
-    command: |
       cd ./web
       npm run dev
 
@@ -44,8 +39,10 @@ tasks:
 ports:
   - port: 5555
     visibility: public
+    onOpen: ignore
   - port: 3333
     visibility: public
+    onOpen: ignore
   - port: 3000
     onOpen: open-browser
 
