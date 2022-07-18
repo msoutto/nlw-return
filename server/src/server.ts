@@ -7,16 +7,21 @@ const app = express();
 
 dotenv.config();
 
-// TODO: limit access
 app.use(cors(), (req, res, next) => {
-    const allowedOrigins = ['https://nlw-return-dun.vercel.app', 'https://3000-matheussoutto-nlwreturn*.gitpod.io'];
+    const allowedOrigins = ['https://nlw-return-dun.vercel.app'];
+    
+    if (process.env.WEB_URL)
+        allowedOrigins.push(process.env.WEB_URL);
+    
     const origin = req.headers.origin ?? '';
-    const env_url = process.env.WEB_URL ?? '';
 
-    if (allowedOrigins.includes(origin) || origin.includes(env_url)) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-        console.log('passed: ', origin);
+    for (const allowed in allowedOrigins) {
+        if (origin.includes(allowed)) {
+            res.setHeader('Access-Control-Allow-Origin', origin);
+            console.log('passed: ', origin);
+        }
     }
+
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     return next();
 });
