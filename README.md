@@ -39,15 +39,7 @@ datasource db {
 
 2. Set up the `datasource url`. For this, there are two options:
 
-- Set the `datasource url` to the database file path:
-```
-datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
-}
-```
-
-- Create a `.env` file (or an environment variable) with the database file path:
+- Create a `.env` file in the `server` path, with the database file path:
 ```
 DATABASE_URL="file:./dev.db"
 ```
@@ -64,9 +56,9 @@ npm run db -y
 
 **Note:** the database will open the port `5555`, so it will be acessible on `http://localhost:5555`.
 
-### Back End (`server path`)
+### Back End (`server` path)
 
-1. Add the Front End (`web`) URL to the environment variables, either of the system, or in `.env` file:
+1. Add the Front End (`web`) URL to the environment variables in the `.env` file:
 ```
 VITE_WEB_URL=http://localhost:3000
 ```
@@ -78,9 +70,9 @@ VITE_WEB_URL=http://localhost:3000
 npm run dev
 ```
 
-### Front End (`web path`)
+### Front End (`web` path)
 
-1. In the `web` path, create a .env.local file with the API URL:
+1. In the `web` path, create a `.env.local` file with the API URL:
 ```
 VITE_API_URL=http://localhost:3333
 ```
