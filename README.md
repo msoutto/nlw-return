@@ -57,6 +57,13 @@ DATABASE_URL="file:./dev.db"
 npx prisma migrate dev
 ```
 
+4. To run the database, run the following command:
+```
+npm run db -y
+```
+
+**Note:** the database will open the port `5555`, so it will be acessible on `http://localhost:5555`.
+
 ### Back End (`server path`)
 
 
