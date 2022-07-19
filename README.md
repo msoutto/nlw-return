@@ -66,7 +66,17 @@ npm run db -y
 
 ### Back End (`server path`)
 
+1. Add the Front End (`web`) URL to the environment variables, either of the system, or in `.env` file:
+```
+VITE_WEB_URL=http://localhost:3000
+```
 
+**Note:** this is needed so the back end allows the web app to access the requests on cors policy.
+
+2. To run the back end API service, run the following command on a separate terminal (make sure it is in the `server` path):
+```
+npm run dev
+```
 
 ### Front End (`web path`)
 
