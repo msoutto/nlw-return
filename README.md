@@ -21,9 +21,13 @@ Click the button below to check this project in an online development environmen
 
 ## Local development setup
 
+Instructions to set this app in your local environment.
+
+**The first step is to run `npm install` in both `server` and `web` paths.**
+
 ### Back End (`server path`)
 
-On development environment SQLite was used as database provider for the easy setup.
+On development environment, SQLite was used as database provider for the easy setup.
 
 Change the db provider to `sqlite`:
 ```
