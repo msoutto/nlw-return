@@ -80,7 +80,12 @@ npm run dev
 
 ### Front End (`web path`)
 
-Create .env.local file (or just an environment variable) with API info:
+1. In the `web` path, create a .env.local file with the API URL:
 ```
 VITE_API_URL=http://localhost:3333
+```
+
+2. To run the web app, run the following command on a separate terminal (make sure it is in the `web` path):
+```
+npm run dev
 ```
