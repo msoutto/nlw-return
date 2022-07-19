@@ -25,11 +25,11 @@ Instructions to set this app in your local environment.
 
 **The first step is to run `npm install` in both `server` and `web` paths.**
 
-### Back End (`server path`)
+### Database (`server path`)
 
-On development environment, SQLite was used as database provider for the easy setup.
+On development environment, SQLite was used as database provider for the easy setup. To be able to use the same, follow the next steps
 
-Change the db provider to `sqlite`:
+1. Change the db provider to `sqlite`:
 ```
 datasource db {
   provider = "sqlite"
@@ -37,15 +37,27 @@ datasource db {
 }
 ```
 
-Create .env file (or just an environment variable) with DB info:
+2. Create .env file (or an environment variable) with the DB file path:
 ```
 DATABASE_URL="file:./dev.db"
 ```
 
-Run the Migrations to create the table in the database with the following command:
+- Or just set the datasource url to the DB file path:
+```
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+```
+
+3. Run the Migrations to create the table in the database, with the following command:
 ```
 npx prisma migrate dev
 ```
+
+### Back End (`server path`)
+
+
 
 ### Front End (`web path`)
 
